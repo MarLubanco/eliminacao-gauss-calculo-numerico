@@ -27,20 +27,26 @@ public class Service {
 
 
   public void calcularPrimeiraLlinha(int[][] matriz) {
+    int contador = 0;
 //    int n = matriz[1][0];
-    int n1 = matriz[0][0];
+//    int n1 = matriz[0][0];
 //    for(int k=0; k < matriz.length; k++) {
 //      primeiraLinhaAux[k] = matriz[0][k] * n;
 //      matriz[1][k] = matriz[1][k] * n1;
 //      matriz[1][k] = matriz[1][k] - primeiraLinhaAux[k];
 //    }
-    for(int i=1; i < matriz.length; i++) {
-      int valorAtual = matriz[i][0];
+    int cont = 0;
+    for(int i=0; i < matriz.length -1; i++) {
+      int n1 = matriz[i][contador];
+      cont = i;
       for (int k = 0; k < matriz.length; k++) {
+        int valorAtual = matriz[cont +1][0];
         int linhaUm  = matriz[0][k] * valorAtual;
-        int linhaAtual = matriz[i][k] * (-n1) ;
-        matriz[i][k] = linhaUm + linhaAtual;
+        int linhaAtual = matriz[i+1][k] * (-n1) ;
+        matriz[i+1][k] = linhaUm + linhaAtual;
+        cont++;
       }
+      contador++;
     }
     System.out.println("TESTANDO ");
     printarMatriz(matriz);
